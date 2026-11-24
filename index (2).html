@@ -1,0 +1,496 @@
+<title>Mga Nilalang ng Pilipinas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: madilim na hero na may buwan at eklipse, banig na hati, direktoryo ng nilalang na may filter, at seksyon ng rehiyon. */
+:root {
+  --bg: #EEF2EE;
+  --surface: #E1E9E3;
+  --fg: #13241F;
+  --muted: #4D635B;
+  --line: #BFCEC5;
+  --accent: #A8321F;
+  --accent-ink: #FFFFFF;
+  --moon: #F0D58A;
+  --hero-bg: #0D1A17;
+  --hero-fg: #E7EEE9;
+  --focus: #1F6F5C;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1513; --surface: #13221E; --fg: #E4ECE7; --muted: #9BB0A7;
+    --line: #25392F; --accent: #E8765F; --accent-ink: #1A0B07; --focus: #7FD1B9;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1513; --surface: #13221E; --fg: #E4ECE7; --muted: #9BB0A7;
+  --line: #25392F; --accent: #E8765F; --accent-ink: #1A0B07; --focus: #7FD1B9;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.6; margin: 0; }
+* { box-sizing: border-box; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section, main { scroll-margin-top: 1rem; }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* Hero */
+.hero { background: var(--hero-bg); color: var(--hero-fg); margin-top: calc(-1 * env(safe-area-inset-top, 0px)); padding-top: calc(env(safe-area-inset-top, 0px) + 1.5rem); padding-bottom: 3.5rem; }
+.nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; list-style: none; margin: 0 0 3rem; padding: 0; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.nav a { color: var(--hero-fg); text-decoration: none; padding: 0.25rem 0; border-bottom: 1px solid transparent; }
+.nav a:hover { border-bottom-color: var(--moon); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moon); margin: 0 0 1rem; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 7vw, 4.6rem); line-height: 1; letter-spacing: -0.02em; margin: 0 0 1.25rem; text-wrap: balance; }
+.lead { max-width: 52ch; color: #C3D1CA; margin: 0 0 1.5rem; font-size: 1.05rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--moon); margin: 0; padding: 0; list-style: none; }
+.sky-wrap { justify-self: center; text-align: center; width: min(100%, 320px); }
+.sky { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background-image: radial-gradient(circle, rgba(231,238,233,0.7) 1px, transparent 1.5px), radial-gradient(circle, rgba(231,238,233,0.45) 1px, transparent 1.5px); background-size: 61px 67px, 43px 37px; background-position: 8px 12px, 21px 30px; }
+.moon { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #FBEBB5, var(--moon) 60%, #C9A85A); box-shadow: 0 0 60px rgba(240, 213, 138, 0.35); }
+.maw { position: absolute; inset: 14%; border-radius: 50%; background: var(--hero-bg); animation: swallow 18s ease-in-out infinite alternate; }
+@keyframes swallow { from { transform: translateX(-100%); } to { transform: translateX(-12%); } }
+.sky-cap { font-size: 0.85rem; color: #9FB3AA; margin: 0.9rem auto 0; max-width: 34ch; }
+.banig { height: 16px; background: conic-gradient(var(--accent) 25%, var(--moon) 0 50%, var(--accent) 0 75%, var(--moon) 0) 0 0 / 16px 16px; }
+
+/* Intro */
+.intro { padding-block: 3.5rem 1rem; }
+.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 2rem; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3.6vw, 2.1rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.intro p { margin: 0 0 1rem; max-width: 62ch; }
+.intro p.muted { color: var(--muted); }
+
+/* Directory */
+.directory { padding-block: 2.5rem 4rem; }
+.controls { display: grid; gap: 1.25rem; margin-bottom: 1.5rem; }
+.search { display: grid; gap: 0.5rem; }
+.search input { width: 100%; max-width: 420px; font: inherit; padding: 0.65rem 0.9rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); }
+.search input::placeholder { color: var(--muted); }
+.group { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.group-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.chip { font: inherit; font-size: 0.9rem; padding: 0.35rem 0.85rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--fg); cursor: pointer; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.count { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); margin: 0 0 1.25rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.25rem; }
+.creature { background: var(--surface); border-radius: 6px; padding: 1rem 1rem 1.25rem; min-width: 0; display: flex; flex-direction: column; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+.tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); }
+.tag.cat { border-color: var(--accent); color: var(--accent); }
+.creature h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.55rem; line-height: 1.1; margin: 0; }
+.alt { font-size: 0.88rem; color: var(--muted); margin: 0.2rem 0 0.6rem; }
+.short { margin: 0 0 0.75rem; font-size: 0.95rem; }
+details { margin-top: auto; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+details summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 0.25rem 0; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: " +"; }
+details[open] summary::after { content: " −"; }
+dl { margin: 0.5rem 0 0; display: grid; gap: 0.75rem; }
+dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+dd { margin: 0.15rem 0 0; font-size: 0.93rem; }
+.empty { padding: 2rem 0; color: var(--muted); }
+
+/* Ilustrasyon */
+.ill { --ill-bg: #0D1A17; --ill-fg: #E7EEE9; --ill-acc: #E8765F; --ill-moon: #F0D58A; --ill-mid: #2C5246; background: var(--ill-bg); border-radius: 4px; margin-bottom: 1rem; overflow: hidden; aspect-ratio: 4 / 3; }
+.ill svg { display: block; width: 100%; height: 100%; }
+.ill .f { fill: var(--ill-fg); }
+.ill .a { fill: var(--ill-acc); }
+.ill .m { fill: var(--ill-moon); }
+.ill .g { fill: var(--ill-mid); }
+.ill .d { fill: var(--ill-bg); }
+.ill .body { fill: none; stroke: var(--ill-fg); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+.ill .thin { fill: none; stroke: var(--ill-fg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.ill .thin-a { fill: none; stroke: var(--ill-acc); stroke-width: 4; stroke-linecap: round; }
+.ill .dim { opacity: 0.3; }
+.ill .dim2 { opacity: 0.55; }
+
+/* Rehiyon */
+.regions { padding-block: 1rem 3.5rem; }
+.regions h2 { margin-bottom: 1.5rem; }
+.reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 1.5rem; }
+.reg { border-top: 3px solid var(--accent); padding-top: 0.75rem; min-width: 0; display: flex; flex-direction: column; }
+.reg h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; margin: 0; }
+.reg .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); margin: 0.1rem 0 0.6rem; }
+.reg p { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.reg .names { color: var(--muted); font-size: 0.9rem; }
+.reg button { font: inherit; font-weight: 600; background: none; border: 0; padding: 0; margin-top: auto; color: var(--accent); text-decoration: underline; cursor: pointer; text-align: left; }
+
+footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--muted); font-size: 0.9rem; }
+footer p { margin: 0; max-width: 70ch; }
+
+@media (max-width: 720px) {
+  .hero-grid, .intro-grid { grid-template-columns: minmax(0, 1fr); }
+  .sky-wrap { order: -1; width: min(70%, 240px); }
+  .nav { margin-bottom: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maw { animation: none; transform: translateX(-45%); }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <ul class="nav">
+      <li><a href="#saan-galing">Saan galing</a></li>
+      <li><a href="#direktoryo">Mga nilalang</a></li>
+      <li><a href="#rehiyon">Rehiyon</a></li>
+    </ul>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Alamat at kuwentong-bayan</p>
+        <h1>Mga Nilalang ng Pilipinas</h1>
+        <p class="lead">Mula sa dragon na lumulunok ng buwan hanggang sa matandang nakatira sa punso, narito ang mga nilalang na isinasalaysay ng mga lolo at lola sa iba't ibang panig ng bansa.</p>
+        <ul class="stats" id="stats"></ul>
+      </div>
+      <div class="sky-wrap">
+        <div class="sky" aria-hidden="true"><div class="moon"></div><div class="maw"></div></div>
+        <p class="sky-cap">Ayon sa mga kuwentong Bisaya, nilalamon ng Bakunawa ang buwan tuwing eklipse.</p>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="banig" aria-hidden="true"></div>
+
+<section class="intro" id="saan-galing">
+  <div class="wrap intro-grid">
+    <h2>Saan galing ang mga kuwento</h2>
+    <div>
+      <p>Karamihan sa mga nilalang na ito ay ipinasa nang pasalita, mula sa magulang tungo sa anak, bago pa man may nagsulat sa kanila. Ginamit ang mga kuwento para ipaliwanag ang eklipse, ang pagkaligaw sa gubat, ang bangungot at ang kababalaghan ng dagat.</p>
+      <p class="muted">Iba-iba ang bersyon ng bawat kuwento ayon sa lugar at sa nagkukuwento. Ang mga paglalarawan dito ay karaniwang bersyon lamang.</p>
+    </div>
+  </div>
+</section>
+
+<main class="directory" id="direktoryo">
+  <div class="wrap">
+    <div class="controls">
+      <label class="search">
+        <span class="group-label">Hanapin</span>
+        <input id="q" type="search" placeholder="Hal. tikbalang, dagat, Bisaya" autocomplete="off">
+      </label>
+      <div class="group" id="cat-group"><span class="group-label">Uri</span></div>
+      <div class="group" id="reg-group"><span class="group-label">Rehiyon</span></div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Walang tugma. Subukan ang ibang salita o alisin ang filter.</p>
+  </div>
+</main>
+
+<section class="regions" id="rehiyon">
+  <div class="wrap">
+    <h2>Mga nilalang ayon sa rehiyon</h2>
+    <div class="reg-grid" id="reg-grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Pangkalahatang buod ito ng kuwentong-bayan at hindi akademikong sanggunian. Para sa mas malalim na pag-aaral, tingnan ang mga koleksyon ng alamat sa mga aklatan at museo ng inyong lalawigan.</p>
+  </div>
+</footer>
+
+<script>
+var items = [
+  { name: "Bakunawa", alt: "Dragon na lumulunok ng buwan", cat: "Langit", region: "Visayas",
+    short: "Dambuhalang ahas-dagat na umaahon sa gabi para lunukin ang buwan. Ito ang paliwanag ng eklipse.",
+    look: "Malaking ahas o dragon na may malapad na bibig, madalas na may pakpak at kaliskis.",
+    lore: "Sa ilang bersyong Bisaya, pitong buwan ang dating nasa langit at karamihan ay nilamon ng Bakunawa. Kapag may eklipse, nag-iingay ang mga tao gamit ang kaldero at tambol hanggang maisuka nito ang buwan.",
+    tip: "Mag-ingay hanggang bumalik ang liwanag ng buwan." },
+  { name: "Tikbalang", alt: "Kabayong-tao ng gubat", cat: "Kagubatan", region: "Luzon",
+    short: "Matangkad na may ulo at paa ng kabayo. Nililito niya ang mga manlalakbay sa bundok at gubat.",
+    look: "Payat at napakatangkad, mahahaba ang braso at binti, at may mahabang kiling sa batok.",
+    lore: "Pinaniniwalaang naliligaw ang taong dumaan sa teritoryo niya. Sabi ng matatanda, kapag umuulan habang maaraw, may ikinakasal na tikbalang.",
+    tip: "Baligtarin ang suot na damit para hindi maligaw, ayon sa matatanda." },
+  { name: "Kapre", alt: "Higanteng naninigarilyo", cat: "Kagubatan", region: "Buong bansa",
+    short: "Malaki, maitim at mabalahibong nilalang na nakatira sa malalaking puno gaya ng balete at mangga.",
+    look: "Dambuhala at mabalahibo, kadalasang may hawak na tabako o malaking siga.",
+    lore: "Amoy usok sa madilim na gabi ang hudyat ng kapre. Hindi raw siya laging masama, pero nililigaw niya ang mga dumaraan at tinatakot ang mga lalapit sa kaniyang puno.",
+    tip: "Magpaalam nang magalang kapag dadaan sa malaking punong may amoy usok." },
+  { name: "Manananggal", alt: "Babaeng nahahati ang katawan", cat: "Halimaw", region: "Visayas",
+    short: "Babaeng humihiwalay ang itaas na katawan sa gabi at lumilipad gamit ang pakpak na parang paniki.",
+    look: "Itaas na katawan na may mahabang buhok at malalaking pakpak. Naiiwan ang ibabang bahagi sa lupa.",
+    lore: "Hango ang pangalan sa salitang tanggal, ibig sabihin ay nahiwalay. Sa kuwento, naninila ito ng mga buntis sa gabi.",
+    tip: "Asin o bawang sa naiwang ibabang katawan ang sinasabing pipigil dito." },
+  { name: "Aswang", alt: "Nilalang na nagbabagong-anyo", cat: "Halimaw", region: "Buong bansa",
+    short: "Pangkalahatang tawag sa mga nilalang na nagpapalit ng anyo. Kilala sa Capiz, Antique at iba pang bahagi ng Visayas.",
+    look: "Karaniwang tao sa umaga. Sa gabi, nagiging aso, baboy o ibon.",
+    lore: "Maraming bersyon ang aswang, at madalas ay pinaghahalo sa ibang halimaw gaya ng manananggal. Matagal na itong bahagi ng kuwentong-bayan sa maraming probinsya.",
+    tip: "Bawang, asin at mga sagradong bagay ang tradisyunal na panlaban." },
+  { name: "Diwata", alt: "Espiritu ng kalikasan", cat: "Espiritu", region: "Buong bansa",
+    short: "Tagapag-alaga ng gubat, bundok at ilog. Ang pinakakilala ay si Maria Makiling.",
+    look: "Magandang babae o lalaki na hindi laging nakikita ng tao.",
+    lore: "Sa kuwento mula sa Laguna, si Maria Makiling ang diwata ng Bundok Makiling. Mabait siya sa mga mabubuti at nagagalit sa mga sakim.",
+    tip: "Igalang ang kalikasan at huwag manira ng gubat." },
+  { name: "Nuno sa Punso", alt: "Matandang nasa punso", cat: "Espiritu", region: "Buong bansa",
+    short: "Maliit na matandang naninirahan sa punso ng lupa o anay.",
+    look: "Maliit, matanda at madalas na may mahabang balbas.",
+    lore: "Kapag may nanira o umihi sa punso, maaaring magkasakit ang tao. Kaya sinasabi ang \"tabi-tabi po\" bago dumaan.",
+    tip: "Sabihin ang \"tabi-tabi po\" bilang paggalang." },
+  { name: "Sarimanok", alt: "Ibon ng mga Maranao", cat: "Langit", region: "Mindanao",
+    short: "Makulay na tandang sa alamat ng mga Maranao. Sagisag ito ng suwerte at dangal.",
+    look: "Matingkad ang balahibo, may isdang hawak sa tuka, at madalas na ukit sa disenyong okir.",
+    lore: "Makikita sa sining at mga bahay ng mga Maranao sa Lanao. Sinasabing nagdadala ito ng magandang kapalaran.",
+    tip: "Hindi ito nakakatakot. Simbolo ito ng yaman at karangalan." },
+  { name: "Magindara", alt: "Sirenang Bisaya", cat: "Dagat", region: "Visayas",
+    short: "Bahagi tao at bahagi isda. Sa ilang kuwento, mapanganib ito sa mga mangingisda.",
+    look: "Babaeng may buntot ng isda at mahabang buhok.",
+    lore: "Sa ilang bersyon, inaakit nito ang mga lalaki palapit sa dagat. Iba-iba ang kuwento depende sa baybayin.",
+    tip: "Mag-ingat sa kakaibang awit sa dagat tuwing gabi." },
+  { name: "Santelmo", alt: "Apoy sa dagat", cat: "Dagat", region: "Buong bansa",
+    short: "Bolang apoy na lumulutang sa dagat o sa madilim na lugar.",
+    look: "Maliwanag na apoy na gumagalaw sa ibabaw ng tubig o sa palo ng barko.",
+    lore: "Hango ang pangalan kay San Telmo, patron ng mga mandaragat. Sa ilang paniniwala, kaluluwa ito ng mga nawala sa dagat. Kilala rin ito sa agham bilang St. Elmo's fire.",
+    tip: "Huwag sundan ang apoy dahil sinasabing nagliligaw ito." },
+  { name: "Tiyanak", alt: "Sanggol na halimaw", cat: "Kagubatan", region: "Buong bansa",
+    short: "Umiiyak na sanggol sa gubat na nagiging halimaw kapag kinarga.",
+    look: "Maliit na parang bagong silang, ngunit may matatalas na kuko at ngipin kapag nagbago ng anyo.",
+    lore: "Sa kuwento, espiritu ito ng batang namatay nang walang binyag. Hinihikayat nito ang naliligaw na lumapit sa iyak nito.",
+    tip: "Huwag pansinin ang iyak ng sanggol sa gitna ng gubat." },
+  { name: "Sigbin", alt: "Hayop na lumalakad nang paurong", cat: "Halimaw", region: "Visayas",
+    short: "Parang kambing o aso na lumalakad paurong, mababa ang ulo at may mahabang buntot na parang latigo.",
+    look: "Nakayuko ang ulo sa pagitan ng mga paa at napakabilis kumilos sa dilim.",
+    lore: "Sa ilang bersyon, inaalagaan ito ng pamilyang nais yumaman, at sinasabing lumalabas tuwing Biyernes Santo.",
+    tip: "Magkakaiba ang kuwento sa bawat lalawigan, kaya itanong sa mga nakatatanda." },
+  { name: "Batibat", alt: "Nakaupo sa dibdib", cat: "Espiritu", region: "Luzon",
+    short: "Espiritung nakatira sa puno na dumadapo sa dibdib ng natutulog. Kuwento ito mula sa mga Ilokano.",
+    look: "Matandang babae na nakatira sa malaking puno.",
+    lore: "Ipinaliliwanag nito ang bangungot. Sa kuwento, pinipigilan nito ang paghinga at paggalaw ng natutulog.",
+    tip: "Huwag putulin ang punong tirahan nito nang walang paggalang." }
+];
+
+/* Ilustrasyon: viewBox 240x180, lupa sa y=160. Mga klase ay kumukuha ng kulay mula sa tokens ng .ill. */
+var GROUND = '<rect class="g" x="0" y="160" width="240" height="20"/>';
+var STARS = '<circle class="f dim2" cx="18" cy="16" r="1.3"/><circle class="f dim2" cx="52" cy="30" r="1"/><circle class="f dim2" cx="212" cy="18" r="1.3"/><circle class="f dim2" cx="226" cy="64" r="1"/><circle class="f dim2" cx="28" cy="72" r="1"/>';
+
+var art = {
+  "Bakunawa": '<circle class="m" cx="176" cy="46" r="24"/>' +
+    '<path class="body" d="M14 158 C50 128 30 96 78 100 S122 136 124 98 S146 84 152 80"/>' +
+    '<path class="f" d="M146 74 L132 60 L142 86 Z"/>' +
+    '<ellipse class="f" cx="158" cy="78" rx="17" ry="11" transform="rotate(-30 158 78)"/>' +
+    '<path class="f" d="M166 70 L182 66 L172 80 Z"/>' +
+    '<circle class="a" cx="160" cy="74" r="2.6"/>' + GROUND,
+
+  "Tikbalang": '<rect class="f" x="110" y="108" width="9" height="52" rx="3"/>' +
+    '<rect class="f" x="124" y="108" width="9" height="52" rx="3"/>' +
+    '<path class="f" d="M104 70 L140 66 L138 112 L106 112 Z"/>' +
+    '<path class="body" style="stroke-width:6" d="M108 76 L88 116 M138 72 L152 112"/>' +
+    '<path class="f" d="M128 70 L140 44 L154 50 L146 74 Z"/>' +
+    '<ellipse class="f" cx="158" cy="36" rx="16" ry="12" transform="rotate(-20 158 36)"/>' +
+    '<path class="f" d="M168 34 L192 42 Q194 48 186 49 L168 44 Z"/>' +
+    '<path class="f" d="M148 24 L146 8 L158 22 Z"/>' +
+    '<path class="a" d="M134 46 Q124 28 142 20 L146 28 Q136 34 140 50 Z"/>' +
+    '<circle class="m" cx="160" cy="32" r="2.4"/>' + GROUND,
+
+  "Kapre": '<rect class="g" x="30" y="30" width="22" height="130"/>' +
+    '<ellipse class="g" cx="41" cy="30" rx="40" ry="20"/>' +
+    '<rect class="f" x="144" y="136" width="13" height="26" rx="4"/>' +
+    '<rect class="f" x="164" y="136" width="13" height="26" rx="4"/>' +
+    '<ellipse class="f" cx="160" cy="110" rx="30" ry="34"/>' +
+    '<circle class="f" cx="160" cy="62" r="20"/>' +
+    '<path class="g" d="M140 58 Q146 36 160 38 Q174 36 180 58 L176 46 Q160 52 144 46 Z"/>' +
+    '<path class="g" d="M146 72 Q160 96 174 72 Q160 80 146 72 Z"/>' +
+    '<circle class="m" cx="153" cy="62" r="2.6"/><circle class="m" cx="167" cy="62" r="2.6"/>' +
+    '<rect class="f" x="176" y="86" width="20" height="4" rx="2"/>' +
+    '<circle class="a" cx="197" cy="88" r="3"/>' +
+    '<path class="thin" d="M199 82 Q212 66 198 52 Q188 40 204 26"/>' + GROUND,
+
+  "Manananggal": '<circle class="m dim" cx="204" cy="34" r="14"/>' +
+    '<path class="g" d="M112 66 L56 34 L66 62 L36 76 L70 86 L58 110 L112 90 Z"/>' +
+    '<path class="g" d="M128 66 L184 34 L174 62 L204 76 L170 86 L182 110 L128 90 Z"/>' +
+    '<ellipse class="f" cx="120" cy="76" rx="16" ry="22"/>' +
+    '<circle class="f" cx="120" cy="44" r="12"/>' +
+    '<path class="f" d="M108 44 Q98 84 110 104 L114 92 Q104 70 110 44 Z"/>' +
+    '<circle class="a" cx="116" cy="44" r="1.8"/><circle class="a" cx="124" cy="44" r="1.8"/>' +
+    '<path class="thin-a" d="M120 98 Q112 110 118 124"/>' +
+    '<path class="f" d="M106 160 L110 132 L130 132 L134 160 Z"/>' + GROUND,
+
+  "Aswang": '<circle class="m dim" cx="206" cy="30" r="13"/>' +
+    '<circle class="f" cx="84" cy="52" r="13"/>' +
+    '<path class="f" d="M66 70 Q84 62 102 70 L108 160 H62 Z"/>' +
+    '<circle class="a" cx="79" cy="50" r="2.2"/><circle class="a" cx="89" cy="50" r="2.2"/>' +
+    '<ellipse class="f dim2" cx="170" cy="132" rx="36" ry="16"/>' +
+    '<circle class="f dim2" cx="204" cy="118" r="12"/>' +
+    '<path class="f dim2" d="M212 116 L228 120 L212 124 Z"/>' +
+    '<path class="f dim2" d="M196 108 L192 96 L202 106 Z"/>' +
+    '<rect class="f dim2" x="146" y="140" width="7" height="20"/>' +
+    '<rect class="f dim2" x="186" y="140" width="7" height="20"/>' +
+    '<path class="thin dim2" d="M134 128 Q120 112 130 100"/>' +
+    '<circle class="a" cx="208" cy="115" r="2"/>' + GROUND,
+
+  "Diwata": '<circle class="m dim" cx="120" cy="66" r="44"/>' +
+    '<path class="g" d="M0 160 L64 84 L110 134 L158 76 L240 160 Z"/>' +
+    '<path class="f" d="M108 104 L98 160 H142 L132 104 Z"/>' +
+    '<path class="f" d="M110 60 Q102 86 110 104 L130 104 Q138 86 130 60 Z"/>' +
+    '<circle class="f" cx="120" cy="50" r="10"/>' +
+    '<circle class="a" cx="92" cy="92" r="3"/><circle class="a" cx="150" cy="104" r="3"/>' +
+    '<circle class="m" cx="82" cy="60" r="2"/><circle class="m" cx="162" cy="50" r="2"/>' + STARS,
+
+  "Nuno sa Punso": '<path class="g" d="M52 160 Q120 96 188 160 Z"/>' +
+    '<circle class="f" cx="120" cy="112" r="11"/>' +
+    '<path class="a" d="M108 106 Q120 90 132 106 Z"/>' +
+    '<path class="m" d="M112 118 Q120 138 128 118 Z"/>' +
+    '<circle class="d" cx="116" cy="112" r="1.6"/><circle class="d" cx="124" cy="112" r="1.6"/>' +
+    '<path class="thin" d="M138 120 L152 160"/>' +
+    '<circle class="f dim2" cx="84" cy="138" r="1.8"/><circle class="f dim2" cx="160" cy="132" r="1.8"/>' +
+    '<circle class="f dim2" cx="70" cy="150" r="1.8"/>' + STARS + GROUND,
+
+  "Sarimanok": '<path class="a" d="M92 96 Q44 50 62 18 Q80 52 104 80 Z"/>' +
+    '<path class="m" d="M90 104 Q34 92 26 52 Q62 70 100 96 Z"/>' +
+    '<path class="f dim2" d="M92 112 Q46 128 40 96 Q70 106 100 110 Z"/>' +
+    '<ellipse class="f" cx="116" cy="106" rx="34" ry="22"/>' +
+    '<path class="f" d="M136 92 Q150 80 148 60 L160 60 Q162 88 146 104 Z"/>' +
+    '<circle class="f" cx="154" cy="54" r="13"/>' +
+    '<path class="a" d="M146 44 L150 32 L158 42 L164 34 L166 46 Z"/>' +
+    '<path class="a" d="M166 52 L180 56 L166 60 Z"/>' +
+    '<ellipse class="m" cx="186" cy="56" rx="9" ry="4"/>' +
+    '<path class="m" d="M194 56 L202 50 L202 62 Z"/>' +
+    '<circle class="d" cx="158" cy="50" r="2"/>' +
+    '<path class="g" d="M96 98 Q108 84 126 98 Q110 112 96 98 Z"/>' +
+    '<rect class="a" x="110" y="124" width="4" height="36"/>' +
+    '<rect class="a" x="122" y="124" width="4" height="36"/>' + GROUND,
+
+  "Magindara": '<circle class="m dim" cx="200" cy="30" r="14"/>' +
+    '<path class="thin dim2" d="M0 150 Q15 144 30 150 T60 150 T90 150 T120 150 T150 150 T180 150 T210 150 T240 150"/>' +
+    '<path class="f" d="M104 66 Q120 58 136 66 L132 102 H108 Z"/>' +
+    '<path class="f" d="M108 52 Q96 86 108 108 L114 100 Q104 80 112 50 Z"/>' +
+    '<path class="f" d="M132 52 Q144 86 132 104 L126 100 Q136 80 128 50 Z"/>' +
+    '<circle class="f" cx="120" cy="50" r="10"/>' +
+    '<path class="a" d="M104 100 H136 L146 118 Q132 130 120 124 Q112 134 102 124 Z"/>' +
+    '<path class="thin" d="M104 70 L92 90"/>' + GROUND,
+
+  "Santelmo": '<ellipse class="a" cx="120" cy="134" rx="22" ry="4" opacity=".35"/>' +
+    '<circle class="a" cx="120" cy="72" r="30" opacity=".3"/>' +
+    '<circle class="m" cx="120" cy="72" r="14"/>' +
+    '<path class="m" d="M120 40 Q130 54 120 60 Q110 54 120 40 Z"/>' +
+    '<path class="thin dim2" d="M92 148 H148"/><path class="thin dim2" d="M100 154 H140"/>' + STARS + GROUND,
+
+  "Tiyanak": '<path class="g" d="M16 160 L40 60 L64 160 Z"/>' +
+    '<path class="g" d="M176 160 L200 50 L224 160 Z"/>' +
+    '<circle class="f" cx="120" cy="104" r="22"/>' +
+    '<ellipse class="f" cx="120" cy="138" rx="20" ry="16"/>' +
+    '<circle class="a" cx="112" cy="100" r="4"/><circle class="a" cx="128" cy="100" r="4"/>' +
+    '<path class="d" d="M108 114 Q120 128 132 114 Z"/>' +
+    '<path class="f" d="M112 116 L114 122 L116 116 Z M122 120 L124 126 L126 120 Z"/>' +
+    '<path class="thin-a" d="M104 138 L94 146 M136 138 L146 146"/>' + STARS + GROUND,
+
+  "Sigbin": '<circle class="m dim" cx="200" cy="34" r="13"/>' +
+    '<path class="thin" d="M158 110 Q190 104 186 78 Q182 60 204 48"/>' +
+    '<ellipse class="f" cx="120" cy="108" rx="40" ry="20"/>' +
+    '<rect class="f" x="96" y="122" width="8" height="38" rx="3"/>' +
+    '<rect class="f" x="112" y="122" width="8" height="38" rx="3"/>' +
+    '<rect class="f" x="132" y="122" width="8" height="38" rx="3"/>' +
+    '<rect class="f" x="146" y="122" width="8" height="38" rx="3"/>' +
+    '<path class="f" d="M86 104 L72 124 L86 124 Z"/>' +
+    '<ellipse class="f" cx="70" cy="128" rx="14" ry="10"/>' +
+    '<path class="f" d="M60 122 L48 116 L60 128 Z"/>' +
+    '<circle class="a" cx="64" cy="124" r="2.4"/>' + STARS + GROUND,
+
+  "Batibat": '<rect class="g" x="196" y="40" width="14" height="120"/>' +
+    '<ellipse class="g" cx="203" cy="40" rx="30" ry="22"/>' +
+    '<rect class="f dim2" x="60" y="118" width="110" height="16" rx="6"/>' +
+    '<circle class="f dim2" cx="46" cy="124" r="11"/>' +
+    '<rect class="g" x="20" y="134" width="180" height="12" rx="3"/>' +
+    '<circle class="f" cx="116" cy="92" r="11"/>' +
+    '<path class="g" d="M104 90 Q100 66 116 66 Q134 66 128 92 L124 84 Q118 74 110 84 Z"/>' +
+    '<path class="f" d="M100 104 Q116 120 132 104 L136 118 H96 Z"/>' +
+    '<circle class="a" cx="112" cy="92" r="2"/><circle class="a" cx="121" cy="92" r="2"/>' +
+    '<path class="thin-a" d="M104 108 Q90 120 78 118"/>' +
+    '<path class="thin-a" d="M128 108 Q140 118 150 116"/>' + STARS + GROUND
+};
+
+function illus(name) {
+  return '<svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">' + (art[name] || "") + '</svg>';
+}
+
+var cats = ["Lahat", "Langit", "Kagubatan", "Dagat", "Espiritu", "Halimaw"];
+var regions = ["Lahat", "Luzon", "Visayas", "Mindanao", "Buong bansa"];
+var state = { q: "", cat: "Lahat", reg: "Lahat" };
+
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+
+function makeChips(containerId, list, key) {
+  var box = document.getElementById(containerId);
+  list.forEach(function (label) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.textContent = label;
+    b.setAttribute("aria-pressed", label === state[key] ? "true" : "false");
+    b.addEventListener("click", function () {
+      state[key] = label;
+      syncChips();
+      render();
+    });
+    box.appendChild(b);
+  });
+}
+
+function syncChips() {
+  [["cat-group", "cat"], ["reg-group", "reg"]].forEach(function (p) {
+    document.getElementById(p[0]).querySelectorAll(".chip").forEach(function (c) {
+      c.setAttribute("aria-pressed", c.textContent === state[p[1]] ? "true" : "false");
+    });
+  });
+}
+
+function render() {
+  var q = state.q.trim().toLowerCase();
+  var list = items.filter(function (it) {
+    if (state.cat !== "Lahat" && it.cat !== state.cat) return false;
+    if (state.reg !== "Lahat" && it.region !== state.reg) return false;
+    if (!q) return true;
+    return [it.name, it.alt, it.cat, it.region, it.short, it.lore].join(" ").toLowerCase().indexOf(q) !== -1;
+  });
+  document.getElementById("grid").innerHTML = list.map(function (it) {
+    return '<article class="creature">' +
+      '<div class="ill" role="img" aria-label="Ilustrasyon ng ' + esc(it.name) + '">' + illus(it.name) + '</div>' +
+      '<div class="tags"><span class="tag cat">' + esc(it.cat) + '</span><span class="tag">' + esc(it.region) + '</span></div>' +
+      '<h3>' + esc(it.name) + '</h3>' +
+      '<p class="alt">' + esc(it.alt) + '</p>' +
+      '<p class="short">' + esc(it.short) + '</p>' +
+      '<details><summary>Basahin ang kuwento</summary><dl>' +
+      '<div><dt>Hitsura</dt><dd>' + esc(it.look) + '</dd></div>' +
+      '<div><dt>Kuwento</dt><dd>' + esc(it.lore) + '</dd></div>' +
+      '<div><dt>Ayon sa matatanda</dt><dd>' + esc(it.tip) + '</dd></div>' +
+      '</dl></details></article>';
+  }).join("");
+  document.getElementById("count").textContent = "Ipinapakita ang " + list.length + " sa " + items.length + " nilalang";
+  document.getElementById("empty").hidden = list.length !== 0;
+}
+
+document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value; render(); });
+makeChips("cat-group", cats, "cat");
+makeChips("reg-group", regions, "reg");
+
+document.getElementById("stats").innerHTML =
+  "<li>" + items.length + " nilalang</li><li>" + (cats.length - 1) + " uri</li><li>Luzon, Visayas, Mindanao</li>";
+
+var regInfo = {
+  "Luzon": "Kilala ang mga kuwento ng mga Tagalog at Ilokano tungkol sa gubat, bundok at mga puno.",
+  "Visayas": "Sagana sa kuwento ng dagat, buwan at mga nilalang na nagbabagong-anyo.",
+  "Mindanao": "Makulay na alamat at sining ng mga Maranao ang makikita rito. Marami pang kuwento mula sa Mindanao ang hindi pa nasasama sa pahinang ito.",
+  "Buong bansa": "Mga paniniwalang matatagpuan sa halos lahat ng lalawigan, na may iba't ibang bersyon."
+};
+
+document.getElementById("reg-grid").innerHTML = regions.slice(1).map(function (r) {
+  var names = items.filter(function (it) { return it.region === r; }).map(function (it) { return it.name; });
+  return '<div class="reg"><h3>' + esc(r) + '</h3><p class="n">' + names.length + ' nilalang</p>' +
+    '<p>' + esc(regInfo[r]) + '</p><p class="names">' + esc(names.join(", ")) + '</p>' +
+    '<button type="button" data-reg="' + esc(r) + '">Tingnan sa direktoryo →</button></div>';
+}).join("");
+
+document.getElementById("reg-grid").addEventListener("click", function (e) {
+  var btn = e.target.closest("button[data-reg]");
+  if (!btn) return;
+  state.reg = btn.getAttribute("data-reg");
+  state.cat = "Lahat";
+  syncChips();
+  render();
+  document.getElementById("direktoryo").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+render();
+</script>
